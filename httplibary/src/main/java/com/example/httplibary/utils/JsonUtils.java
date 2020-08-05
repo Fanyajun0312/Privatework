@@ -1,5 +1,7 @@
 package com.example.httplibary.utils;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -33,14 +35,16 @@ public class JsonUtils {
         List<T> lists = new ArrayList<>();
         T t = null;
         Iterator it = jsonArray.iterator();
+
         //遍历json数组
         while (it.hasNext()) {
             JsonElement e = (JsonElement) it.next();
 //JsonElement转换为JavaBean对象
             t = gson.fromJson(e, tClass);
+            Log.i("TAG", "jsonToClassList: "+t.toString());
             lists.add(t);
         }
-        return lists;
+            return lists;
     }
 
     /**

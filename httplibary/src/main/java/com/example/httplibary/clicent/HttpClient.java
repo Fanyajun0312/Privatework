@@ -132,13 +132,15 @@ public class HttpClient {
         if(this.timeUnit==null){
             this.timeUnit=HttpConstantUtils.TIME_UNIT;
         }
+
+
         ApiServer apiServer = HttpManager.getInstance().getRetrofit(baseuri, timeout, timeUnit).create(ApiServer.class);
         switch (method) {
             case POST:
                 if (isJson) {
-                    apiServer.postjson(apiuri, requestBody, heades);
+                    observable= apiServer.postjson(apiuri, requestBody, heades);
                 } else {
-                    apiServer.post(apiuri, params, heades);
+                    observable=apiServer.post(apiuri, params, heades);
                 }
                 break;
             case GET:
@@ -168,6 +170,7 @@ public class HttpClient {
         ActivityEvent activityEvent;
         //绑定Fragment的具体的生命周期的
         FragmentEvent fragmentEvent;
+        //
         String baseUrl;
         //拼接的url
         String apiUrl;

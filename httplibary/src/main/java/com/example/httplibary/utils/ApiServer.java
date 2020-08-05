@@ -32,6 +32,7 @@ import retrofit2.http.Url;
  * 描述：TODO
  */
 public interface ApiServer {
+
     @GET
     Observable<JsonElement> get(@Url String url, @QueryMap Map<String, Object> params, @HeaderMap Map<String, Object> heards);
     //上传表单

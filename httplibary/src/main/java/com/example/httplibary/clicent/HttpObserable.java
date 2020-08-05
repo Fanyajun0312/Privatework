@@ -78,7 +78,7 @@ public class HttpObserable {
 
     //Rxjava的生命周期的绑定
     private Observable bindlifecycle() {
-        Observable observable = map();
+        Observable observable = map();//解析对象
         if (lifecycleProvider != null) {
             if (activityEvent != null || fragmentEvent != null) {
                 //两个同时存在,以 activity 为准
@@ -92,7 +92,7 @@ public class HttpObserable {
                     return map().compose(lifecycleProvider.bindUntilEvent(fragmentEvent));
                 }
             } else {
-                return map().compose(lifecycleProvider.bindToLifecycle());
+                return map().compose(lifecycleProvider.bindToLifecycle());//解决内存泄漏
             }
         }
         return observable;

@@ -4,12 +4,7 @@ import android.app.Application;
 
 import com.example.httplibary.http.HttpGlobalConfig;
 import com.example.httplibary.utils.HttpConstantUtils;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import okhttp3.Interceptor;
-import okhttp3.logging.HttpLoggingInterceptor;
+import com.example.three.MainActivity;
 
 /**
  * @date：2020/8/3
@@ -21,7 +16,7 @@ public class ShopApplication extends Application {
     public void onCreate() {
         super.onCreate();
         HttpGlobalConfig.getInstance()
-                .setBaseUri("https://www.wanandroid.com/")
+                .setBaseUri("http://api.t.ergedd.com/api/")
                 .setTimeout(HttpConstantUtils.TIME_OUT)
                 .setTimeUnit(HttpConstantUtils.TIME_UNIT)
                 .initReady(this)
