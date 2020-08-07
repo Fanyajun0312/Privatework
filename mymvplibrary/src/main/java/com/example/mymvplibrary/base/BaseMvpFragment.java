@@ -10,7 +10,6 @@ import com.example.mymvplibrary.view.BaseView;
  */
 public abstract class BaseMvpFragment<V extends BaseView,P extends BasePresenter<V>> extends BaseFragment {
         public P mPresneter;
-
     @Override
     protected void initEvent() {
         mPresneter=initPresenter();

@@ -28,6 +28,12 @@ public abstract class BaseFragment extends RxFragment {
     private View rootView;
     private Unbinder unbinder;
 
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);

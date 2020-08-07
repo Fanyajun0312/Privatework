@@ -19,3 +19,18 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+#Retrofit
+#-dontwarn okio.**
+#-dontwarn javax.annotation.**
+#-dontwarn sun.misc.**
+#-dontwarn sorg.codehaus.mojo.animal_sniffer.**
+#-dontwarn org.codehaus.**
+#-dontwarn java.nio.**
+#-dontwarn java.lang.invoke.**
+##OkHttp3
+#
+#-dontwarn okhttp3.logging.**
+#-keep class okhttp3.internal.{}
+#-dontwarn okio.*
+
+

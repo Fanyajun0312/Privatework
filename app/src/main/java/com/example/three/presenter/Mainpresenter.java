@@ -1,11 +1,10 @@
-package com.example.three;
+package com.example.three.presenter;
 
 import com.example.mymvplibrary.modle.ModleFractory;
 import com.example.mymvplibrary.presenter.BasePresenter;
-import com.example.mymvplibrary.view.BaseView;
+import com.example.three.bean.Dian;
 import com.example.three.callBack.BackCall;
 import com.example.three.model.MainModel;
-import com.example.three.postBean.oneBean;
 import com.example.three.view.MainView;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
  * @describe：
  * @author：FanYaJun
  */
-public class presenter extends BasePresenter<MainView> implements BackCall {
+public class Mainpresenter extends BasePresenter<MainView> implements BackCall {
 
     public void getData() {
         MainModel model = ModleFractory.createModel(MainModel.class);

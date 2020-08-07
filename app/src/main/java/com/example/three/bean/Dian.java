@@ -1,4 +1,4 @@
-package com.example.three;
+package com.example.three.bean;
 
 import java.util.List;
 

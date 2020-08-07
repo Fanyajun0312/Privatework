@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/wark"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_130"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/iv_img_vp"/>
+    <TextView
+        android:id="@+id/tv_ai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/iv_img_vp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="爱生活"
+        android:textStyle="bold"
+        android:textSize="@dimen/dp_15"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_ai"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="有品有范有时尚"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

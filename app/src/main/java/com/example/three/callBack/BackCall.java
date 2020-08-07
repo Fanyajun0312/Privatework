@@ -1,7 +1,6 @@
 package com.example.three.callBack;
 
-import com.example.three.Dian;
-import com.example.three.postBean.oneBean;
+import com.example.three.bean.Dian;
 
 import java.util.List;
 

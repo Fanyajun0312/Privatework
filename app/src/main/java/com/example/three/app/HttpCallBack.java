@@ -35,7 +35,6 @@ public abstract class HttpCallBack<T> extends BaseCallBack<T> {
         Log.i("TAG", "onConvent: "+t.toString());
         return t;
     }
-
     @Override
     protected boolean isCodeSuccess() {
         if(responseFanyj!=null){

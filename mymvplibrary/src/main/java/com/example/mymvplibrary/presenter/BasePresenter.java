@@ -14,10 +14,9 @@ import java.lang.ref.WeakReference;
 public class BasePresenter<V extends BaseView>  {
     public V mview;
     private WeakReference<V> weakReference;//弱引用变量 当走到这里的时候就会别GC
-    private WeakReference<V> reference;
 
     public void attacthView1(V v){
-        reference = new WeakReference<>(v);
+        weakReference = new WeakReference<>(v);
         mview=weakReference.get();
     }
     //布局绑定
@@ -26,6 +25,7 @@ public class BasePresenter<V extends BaseView>  {
         weakReference=new WeakReference<V>(v);
         mview=weakReference.get();
     }
+    //rxlifecycle2 自动干里生命周期的作用 ,避免内存溢出
     public LifecycleProvider getlifecycle(){
         return (LifecycleProvider) mview;
     }

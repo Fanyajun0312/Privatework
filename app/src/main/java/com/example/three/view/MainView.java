@@ -1,8 +1,7 @@
 package com.example.three.view;
 
 import com.example.mymvplibrary.view.BaseView;
-import com.example.three.Dian;
-import com.example.three.postBean.oneBean;
+import com.example.three.bean.Dian;
 
 import java.util.List;
 

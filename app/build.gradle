@@ -1,26 +1,44 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+//        debug {
+//            storeFile file('E:\\Androidstudio\\Tree.jks')
+//            storePassword 'yajun1998'
+//            keyAlias = 'Tree'
+//            keyPassword 'yajun1998'
+//        }
+//
+//        release {
+//            storeFile file('E:\\Androidstudio\\Tree.jks')
+//            storePassword 'yajun1998'
+//            keyAlias = 'Tree'
+//            keyPassword 'yajun1998'
+//        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.example.three"
-        minSdkVersion 14
+        minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled false//混淆开关
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    android{
+    android {
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
@@ -30,16 +48,49 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':httplibary')
     implementation project(path: ':mymvplibrary')
+    //腾讯bug
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.2.0
+    implementation 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    implementation 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    // 下面各SDK根据宿主App是否使用相关业务按需引入。
+    // OAID目前为目前国内市场主流的Android Q设备标识，可根据需要选择。
+    // 友盟统计SDK
+    implementation 'com.umeng.umsdk:common:9.1.0' // (必选)
+    implementation 'com.umeng.umsdk:asms:1.1.3' // asms包依赖(必选)
+    implementation 'com.umeng.umsdk:crash:0.0.4' // native crash包依赖(必选)
+
+    implementation 'com.umeng.umsdk:oaid_lenovo:1.0.0' // (可选)
+    implementation 'com.umeng.umsdk:oaid_mi:1.0.0' // (可选)
+    implementation 'com.umeng.umsdk:oaid_oppo:1.0.4' // (可选)
+    implementation 'com.umeng.umsdk:oaid_vivo:1.0.0.1' // (可选)
+
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
 
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    //banner
+    implementation 'com.youth.banner:banner:1.4.10'
+    //控件底部
+    implementation 'com.ashokvarma.android:bottom-navigation-bar:1.4.1'
+    implementation 'com.github.crosswall:Android-Coverflow:release-v1.0.1'
+    implementation 'com.android.support:recyclerview-v7:29.0.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.8.0'//加载图片
+
+    implementation 'com.github.shts:TriangleLabelView:1.1.0'//标签
 }
