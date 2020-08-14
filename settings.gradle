@@ -1,4 +1,4 @@
 rootProject.name='Three'
-include ':app'
+include ':app', ':libumengsharelogin'
 include ':httplibary'
 include ':mymvplibrary'

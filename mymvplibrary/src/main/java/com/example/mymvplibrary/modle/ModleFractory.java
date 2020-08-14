@@ -3,28 +3,32 @@ package com.example.mymvplibrary.modle;
 import java.util.HashMap;
 
 /**
- * @date：2020/8/5
- * @describe：工厂模式管理员工
- * @author：FanYaJun
+ * 项目名：Shopping
+ * 包名：  com.example.mvplibrary.model
+ * 文件名：ModleFractory
+ * 创建者：liangxq
+ * 创建时间：2020/8/5  14:41
+ * 描述：TODO
  */
 public class ModleFractory {
+
     //存储modle的类的集合
-    private static HashMap<String,BaseModel> maps=new HashMap<>();
+    private static HashMap<String,BaseModel>mMap=new HashMap<>();
 
-    public static <M extends BaseModel> M createModel(Class<M> mClass){
-        if(maps.get(mClass)!=null){
-
-            return (M) maps.get(mClass);
+    public static <M extends BaseModel> M creatModle(Class<M> mClass){
+        if(mMap.get(mClass)!=null){
+            return (M) mMap.get(mClass);
         }
-        M mModel=null;
+        M mModle=null;
         try {
-            mModel= mClass.newInstance();
-            if(mModel!=null){
-                maps.put(mClass.getName(),mModel);
+            //通过反射创建对象,你的子类的modle必须要有无参构造方法。
+            mModle = mClass.newInstance();
+            if(mModle!=null){
+                mMap.put(mClass.getName(),mModle);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return mModel;
+        return mModle;
     }
 }

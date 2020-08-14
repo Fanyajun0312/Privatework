@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class JsonUtils {
     /**
-     *
      * @param data
      * @param tClass
      * @param <T>
@@ -41,24 +40,24 @@ public class JsonUtils {
             JsonElement e = (JsonElement) it.next();
 //JsonElement转换为JavaBean对象
             t = gson.fromJson(e, tClass);
-            Log.i("TAG", "jsonToClassList: "+t.toString());
+            Log.i("TAG", "jsonToClassList: " + t.toString());
             lists.add(t);
         }
-            return lists;
+        return lists;
     }
 
     /**
-     *
-     * @param data  json字符串
+     * @param data   json字符串
      * @param tClass 实体类Class类型
      * @param <T>
      * @return
      */
-    public static <T> T jsonToClass(JsonElement data, Class<T> tClass){
-        return new Gson().fromJson(data,tClass);
+    public static <T> T jsonToClass(JsonElement data, Class<T> tClass) {
+        return new Gson().fromJson(data, tClass);
     }
+
     //实体类转json字符串
-    public static <T> String classToJson(T t){
+    public static <T> String classToJson(T t) {
         return new Gson().toJson(t);
     }
 }

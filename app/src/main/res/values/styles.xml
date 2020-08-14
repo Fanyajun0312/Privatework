@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="SearchHeaderStyle">
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>
@@ -18,7 +19,10 @@
         <item name="android:layout_height">@dimen/common_header_bar_height
         </item>
     </style>
+
     <!-- 搜索输入框样式-->
+
+
     <style name="SearchHeaderEtStyle">
         <item name="android:textColor">@color/common_white</item>
         <item name="android:textColorHint">@color/common_white</item>

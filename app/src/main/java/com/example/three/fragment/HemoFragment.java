@@ -111,12 +111,13 @@ public class HemoFragment extends Fragment {
         titles.add("喜欢阿羡也喜欢李现但更喜欢你现（出现）");
 
         for (int i = 0; i < titles.size(); i++) {
-            View view = LayoutInflater.from(getActivity()).inflate(R.layout.title_view, null);
-            TextView tvTitle = view.findViewById(R.id.tvItem);
+            View inflate = getActivity().getLayoutInflater().inflate(R.layout.title_view, null);
+
+            TextView tvTitle = inflate.findViewById(R.id.tvItem);
             //赋值
             tvTitle.setText(titles.get(i));
             //动态添加视图
-            filpper.addView(view);
+            filpper.addView(inflate);
         }
 
         //设置的时间间隔来开始切换所有的View,切换会循环进行
@@ -177,7 +178,6 @@ public class HemoFragment extends Fragment {
             }
         }).start();
     }
-
 
     @Override
     public void onDestroy() {

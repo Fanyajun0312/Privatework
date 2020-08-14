@@ -6,5 +6,6 @@ package com.example.mymvplibrary.view;
  * @author：FanYaJun
  */
 public interface  BaseView {
-    void showToast(String err);
+    void onError(String msg,int code);
+    void  onCancle();
 }

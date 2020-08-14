@@ -2,6 +2,9 @@ package com.example.httplibary.clicent;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
+
+import androidx.lifecycle.Lifecycle;
 
 import com.example.httplibary.callback.BaseCallBack;
 import com.example.httplibary.http.HttpGlobalConfig;
@@ -282,6 +285,7 @@ public class HttpClient {
         public HttpClient build(){
             return new HttpClient(this);
         }
+
     }
 
 }

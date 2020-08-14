@@ -22,8 +22,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class HttpManager {
     private static volatile HttpManager instance;
-    public HttpManager() {
-    }
 
     /**
      * 双检索单例模式
@@ -34,10 +32,8 @@ public class HttpManager {
             synchronized (HttpManager.class) {
                 if (instance==null) {
                     instance=new HttpManager();
-
                 }
             }
-
         }
         return instance;
     }

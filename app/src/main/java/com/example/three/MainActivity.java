@@ -1,18 +1,12 @@
 package com.example.three;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.example.three.fragment.FenLFragment;
@@ -20,35 +14,47 @@ import com.example.three.fragment.HemoFragment;
 import com.example.three.fragment.MsangFragment;
 import com.example.three.fragment.ShapFragment;
 import com.example.three.fragment.WodeFragment;
-
-import org.w3c.dom.Text;
-
+import com.m.k.systemui.SystemBarConfig;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
 public class MainActivity extends AppCompatActivity {
 
-    //    @BindView(R.id.iv_img)
-//    ImageView ivImg;
-//    @BindView(R.id.re)
-//    RelativeLayout re;
     @BindView(R.id.main_fl)
     FrameLayout mainFl;
     @BindView(R.id.bom_bar)
     BottomNavigationBar bomBar;
     private FragmentManager fragmentManager;
     private Fragment mfragment;
+
+    @SuppressLint("StaticFieldLeak")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        BommBar();//BottomNavigationBar设置
+        SystemBarConfig systemBarConfig = new SystemBarConfig(this).enterFullScreen(SystemBarConfig.MODE_IMMERSIVE_STICKY);
+        systemBarConfig.apply();
+//        //得到当前界面的装饰视图
+//        if(Build.VERSION.SDK_INT >= 21) {
+//            View decorView = getWindow().getDecorView();
+//            //让应用主题内容占用系统状态栏的空间,注意:下面两个参数必须一起使用 stable 牢固的
+//            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+//            decorView.setSystemUiVisibility(option);
+//            //设置状态栏颜色为透明
+//            getWindow().setStatusBarColor(Color.TRANSPARENT);
+//        }
+//        //隐藏标题栏
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.hide();
 
+//        getWindow().setNavigationBarColor(Color.WHITE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        BommBar();//BottomNavigationBar设置
         //fl
         cutFragment();//BottomNavigationBar+Fragnebt借切换
-
     }
 
     private void BommBar() {
@@ -81,15 +87,15 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction()
                 .add(R.id.main_fl, hemoFragment)
                 .commit();
-         mfragment=hemoFragment;
 
 
+        mfragment = hemoFragment;
         bomBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
             @Override
             public void onTabSelected(int position) {
                 switch (position) {
                     case 0:
-                     switchFragment(hemoFragment);
+                        switchFragment(hemoFragment);
                         break;
                     case 1:
                         switchFragment(fenLFragment);
@@ -103,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
                     case 4:
                         switchFragment(wodeFragment);
                         break;
-
                 }
 
             }
@@ -120,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
     private void switchFragment(Fragment fragment) {
         //判断当前显示的Fragment是不是切换的Fragment
         if (mfragment != fragment) {

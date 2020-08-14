@@ -3,7 +3,7 @@ package com.example.three.app;
 import android.util.Log;
 
 import com.example.httplibary.callback.BaseCallBack;
-import com.example.three.bean.Response;
+import com.example.three.bean.Responses;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -14,31 +14,33 @@ import com.google.gson.JsonElement;
  * @author：FanYaJun
  */
 public abstract class HttpCallBack<T> extends BaseCallBack<T> {
-    Response responseFanyj;
+    Responses responseFanyj;
+
     @Override
     protected T onConvent(String result) {
-        T t=null;
-        responseFanyj = new Gson().fromJson(result, Response.class);
+        T t = null;
+        responseFanyj = new Gson().fromJson(result, Responses.class);
         JsonElement data = responseFanyj.getData();
-        int errorCode = responseFanyj.getErrorCode();
-        String errorMsg = responseFanyj.getErrorMsg();
-            switch(errorCode) {
-                    case -1:
-                        onError(errorMsg,errorCode);
-                        break;
-                default:
-                    if(isCodeSuccess()){
-                     t=convert(data);
-                    }
-                    break;
+        int errorCode = responseFanyj.getStatus();
+        String errorMsg = responseFanyj.getMessage();
+        switch (errorCode) {
+            case -1:
+                onError(errorMsg, errorCode);
+                break;
+            default:
+                if (isCodeSuccess()) {
+                    t = convert(data);
                 }
-        Log.i("TAG", "onConvent: "+t.toString());
+                break;
+        }
+        Log.i("TAG", "onConvent: " + t.toString());
         return t;
     }
+
     @Override
     protected boolean isCodeSuccess() {
-        if(responseFanyj!=null){
-            return responseFanyj.getErrorCode()== 0;
+        if (responseFanyj != null) {
+            return responseFanyj.getStatus() == 0;
         }
         return false;
     }

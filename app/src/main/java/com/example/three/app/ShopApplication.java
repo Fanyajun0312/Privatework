@@ -7,7 +7,9 @@ import com.example.httplibary.utils.HttpConstantUtils;
 import com.example.three.MainActivity;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.crashreport.CrashReport;
-import com.umeng.commonsdk.UMConfigure;
+
+import jy.com.libumengsharelogin.UMUtils;
+
 
 /**
  * @date：2020/8/3
@@ -19,11 +21,13 @@ public class ShopApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        youMen();//友盟
+//        youMen();//友盟
         tengXunBug();//腾讯异常上报
         httpNetWork();//网络请求
         LeakCanary();//防止侧漏
-
+        UMUtils.initUmeng(this);
+        UMUtils.isWeixinAvilible(this);
+        UMUtils.isAliPayInstalled(this);
         app=this;
     }
 
@@ -45,7 +49,7 @@ public class ShopApplication extends Application {
 
     private void httpNetWork() {
         HttpGlobalConfig.getInstance()
-                .setBaseUri("http://api.t.ergedd.com/api/")
+                .setBaseUri("http://169.254.1.54:8080/")
                 .setTimeout(HttpConstantUtils.TIME_OUT)
                 .setTimeUnit(HttpConstantUtils.TIME_UNIT)
                 .initReady(this)
@@ -59,7 +63,7 @@ public class ShopApplication extends Application {
     }
 
     private void youMen() {
-        UMConfigure.init(this, "5f2b76f7d3093221547568c4", "UmengFan",UMConfigure.DEVICE_TYPE_PHONE,"");
-        UMConfigure.setLogEnabled(true);
+//        UMConfigure.init(this, "5f2b76f7d3093221547568c4", "UmengFan",UMConfigure.DEVICE_TYPE_PHONE,"");
+//        UMConfigure.setLogEnabled(true);
     }
 }

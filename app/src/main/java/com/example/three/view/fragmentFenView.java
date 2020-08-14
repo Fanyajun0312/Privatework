@@ -1,7 +1,6 @@
 package com.example.three.view;
 
 import com.example.mymvplibrary.view.BaseView;
-import com.example.three.bean.Dian;
 
 import java.util.List;
 
@@ -10,6 +9,6 @@ import java.util.List;
  * @describe：
  * @author：FanYaJun
  */
-public interface MainView extends BaseView {
-    void okbean(List<Dian> bean);
+public interface fragmentFenView extends BaseView {
+
 }

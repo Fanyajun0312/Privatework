@@ -22,10 +22,11 @@
             android:layout_alignParentRight="true"
             app:backgroundColor="@color/common_red"
             app:primaryText="折扣"
+            app:layout_constraintRight_toRightOf="parent"
             app:primaryTextSize="10.0sp"
             app:labelTopPadding="10.0dip"
-            app:labelCenterPadding="0.0dip"
-            app:labelBottomPadding="5.0dip"
+            app:labelCenterPadding="1.0dip"
+            app:labelBottomPadding="10.0dip"
             app:corner="rightTop"
             android:layout_height="wrap_content"
             tools:ignore="MissingConstraints" />

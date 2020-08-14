@@ -2,8 +2,8 @@ package com.example.mymvplibrary.base;
 
 import android.os.Bundle;
 
+
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
@@ -11,38 +11,37 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @date：2020/8/5
- * @describe：
- * @author：FanYaJun
+ * 项目名：Shopping
+ * 包名：  com.example.mvplibrary.base
+ * 文件名：BaseActivity
+ * 创建者：liangxq
+ * 创建时间：2020/8/5  15:20
+ * 描述：TODO
  */
 public abstract class BaseActivity extends RxAppCompatActivity {
-
-    private Unbinder bind;
+    private Unbinder unbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutView());//布局
-        bind = ButterKnife.bind(this);//控件
-        inirEvent();//处理事件
-        initData();//处理数据
-        initListener();
+        setContentView(initLayoutId());
+        unbinder = ButterKnife.bind(this);
+        initEvent();
+        initData();
     }
 
+    protected abstract void initEvent();
 
-    protected abstract int getLayoutView();
-    protected abstract void inirEvent();
     protected abstract void initData();
-    protected abstract void initListener();
+
+    protected abstract int initLayoutId();
 
 
-    //解除空间绑定
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(bind!=null){
-            bind.unbind();
-
+        if(unbinder!=null){
+            unbinder.unbind();
         }
     }
 }

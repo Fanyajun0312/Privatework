@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
@@ -43,7 +44,11 @@ public class Vpadapter extends PagerAdapter {
         View inflate = LayoutInflater.from(context).inflate(R.layout.iv_vp, container, false);
         String s = imglist.get(position);
         ImageView imageView=inflate.findViewById(R.id.iv_img_vp);
-        Glide.with(context).load(s).into(imageView);
+
+
+            Glide.with(context).load(imglist.get(position)).into(imageView);
+
+
         container.addView(inflate);
         return inflate;
     }

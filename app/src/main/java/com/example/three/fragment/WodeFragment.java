@@ -15,6 +15,8 @@ import com.example.three.R;
  */
 public class WodeFragment extends Fragment {
 
+    private View inflate;
+
     public WodeFragment() {
         // Required empty public constructor
     }
@@ -24,6 +26,7 @@ public class WodeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_wode, container, false);
+        inflate = inflater.inflate(R.layout.fragment_wode, container, false);
+        return inflate;
     }
 }

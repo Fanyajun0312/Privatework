@@ -10,6 +10,7 @@ import io.reactivex.Observer;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
+import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -32,31 +33,30 @@ import retrofit2.http.Url;
  * 描述：TODO
  */
 public interface ApiServer {
-
-    @GET
-    Observable<JsonElement> get(@Url String url, @QueryMap Map<String, Object> params, @HeaderMap Map<String, Object> heards);
+    @GET()
+    Observable<JsonElement> get(@Url String url, @QueryMap Map<String,Object>params, @HeaderMap Map<String,Object>heards);
     //上传表单
     @POST
     @FormUrlEncoded
-    Observable<JsonElement>post(@Url String url, @FieldMap Map<String, Object> params, @HeaderMap Map<String, Object> heards);
+    Observable<JsonElement>post(@Url String url, @FieldMap Map<String ,Object>params,@HeaderMap Map<String,Object>heards);
 
     //上传json
     @POST
-    Observable<JsonElement>postjson(@Url String url, RequestBody requestBody, @HeaderMap Map<String, Object> heards);
+    Observable<JsonElement>postjson(@Url String url, @Body RequestBody requestBody, @HeaderMap Map<String,Object>heards);
 
     @DELETE
-    Observable<JsonElement>delete(@Url String url, @QueryMap Map<String, Object> params, @HeaderMap Map<String, Object> heards);
+    Observable<JsonElement>delete(@Url String url,@QueryMap Map<String,Object>params,  @HeaderMap Map<String,Object>heards);
 
     @PUT
     @FormUrlEncoded
-    Observable<JsonElement>put(@Url String url, @FieldMap Map<String, Object> params, @HeaderMap Map<String, Object> heards);
+    Observable<JsonElement>put(@Url String url,@FieldMap Map<String,Object>params,  @HeaderMap Map<String,Object>heards);
 
     //上传文件
     @Multipart
     @POST
-    Observable<JsonElement>upload(@Url String url, @PartMap Map<String, Object> params, List<MultipartBody.Part> fileList);
+    Observable<JsonElement>upload(@Url String url, @PartMap Map<String,Object>params, List<MultipartBody.Part>fileList);
 
     //下载文件
     @Streaming
-    Observable<ResponseBody>download(@Url String url, @QueryMap Map<String, Object> params, @HeaderMap Map<String, Object> heards);
+    Observable<ResponseBody>download(@Url String url,@QueryMap Map<String,Object>params,  @HeaderMap Map<String,Object>heards);
 }
