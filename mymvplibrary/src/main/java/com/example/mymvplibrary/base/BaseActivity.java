@@ -26,9 +26,12 @@ public abstract class BaseActivity extends RxAppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(initLayoutId());
         unbinder = ButterKnife.bind(this);
+        initView();
         initEvent();
         initData();
     }
+
+    protected abstract void initView();
 
     protected abstract void initEvent();
 

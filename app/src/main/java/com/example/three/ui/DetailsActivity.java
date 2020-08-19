@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.three.R;
 import com.example.three.adapter.VpDatasAdapter;
+import com.example.three.bean.DataDetailedean;
 import com.example.three.fenleiFragment.DatesOneFragment;
 import com.example.three.fenleiFragment.DatesTwoFragment;
 import com.google.android.material.tabs.TabLayout;
@@ -29,13 +30,20 @@ public class DetailsActivity extends AppCompatActivity {
     private TextView mEnterCartTv;
     private Button mAddCartBtn;
     private LinearLayout ll_bottom;
+    private DataDetailedean data;
+
+    public DataDetailedean getData() {
+        return data;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        data = (DataDetailedean) getIntent().getSerializableExtra("data");
         initView();
 //        int posiId = getIntent().getExtras().getInt("posiId");
+
         initToolbar();
         initBnner();
     }

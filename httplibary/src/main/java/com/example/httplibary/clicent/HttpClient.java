@@ -1,15 +1,11 @@
 package com.example.httplibary.clicent;
 
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
 
-import androidx.lifecycle.Lifecycle;
-
+import com.example.httplibary.callback.ApiServer;
 import com.example.httplibary.callback.BaseCallBack;
 import com.example.httplibary.http.HttpGlobalConfig;
 import com.example.httplibary.http.HttpManager;
-import com.example.httplibary.utils.ApiServer;
 import com.example.httplibary.utils.HttpConstantUtils;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.android.ActivityEvent;
@@ -21,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
-import retrofit2.Retrofit;
 
 /**
  * @date：2020/8/4
@@ -158,6 +153,7 @@ public class HttpClient {
         }
         return observable;
     }
+
 
 
     public static final class Builder{

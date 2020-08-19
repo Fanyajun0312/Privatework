@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+
         SystemBarConfig systemBarConfig = new SystemBarConfig(this).enterFullScreen(SystemBarConfig.MODE_IMMERSIVE_STICKY);
         systemBarConfig.apply();
 //        //得到当前界面的装饰视图

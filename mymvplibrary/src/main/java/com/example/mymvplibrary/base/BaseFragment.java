@@ -47,11 +47,9 @@ public abstract class BaseFragment extends RxFragment {
         initData();
         return rootView;
     }
-
-
+    protected abstract int initLayoutId();
     protected abstract void initData();
 
-    protected abstract int initLayoutId();
 
     @Override
     public void onDestroyView() {

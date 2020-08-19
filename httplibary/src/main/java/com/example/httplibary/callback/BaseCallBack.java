@@ -47,5 +47,4 @@ public abstract class BaseCallBack<T> extends BaseObserver {
     protected abstract boolean isCodeSuccess();
 
     public abstract T convert(JsonElement result);
-
 }

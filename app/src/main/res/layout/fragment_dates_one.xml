@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llw"
     style="@style/MatchMatch.Vertical.Common">
     <com.youth.banner.Banner
         android:id="@+id/mGoodsDetailBanner"
@@ -39,7 +40,6 @@
             android:id="@+id/mSkuSelectedTv"
             style="@style/WrapWrap"
             android:textColor="@color/text_light_dark"
-            android:text="8961蓝色，L,1件"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/mSkuLabelTv"
             android:layout_marginLeft="@dimen/common_margin"

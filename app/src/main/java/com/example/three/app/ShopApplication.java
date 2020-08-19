@@ -49,7 +49,7 @@ public class ShopApplication extends Application {
 
     private void httpNetWork() {
         HttpGlobalConfig.getInstance()
-                .setBaseUri("http://169.254.1.54:8080/")
+                .setBaseUri("http://169.254.189.205:8080/")
                 .setTimeout(HttpConstantUtils.TIME_OUT)
                 .setTimeUnit(HttpConstantUtils.TIME_UNIT)
                 .initReady(this)

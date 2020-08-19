@@ -1,11 +1,14 @@
-package com.example.three;
+package com.example.three.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.three.R;
 
 import jy.com.libumengsharelogin.LoginActivity;
 
@@ -18,13 +21,10 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         initView();
-
-
     }
 
     private void initView() {
         ww = (Button) findViewById(R.id.ww);
-
         ww.setOnClickListener(this);
     }
 

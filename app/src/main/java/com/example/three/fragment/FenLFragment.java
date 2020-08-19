@@ -1,7 +1,6 @@
 package com.example.three.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,12 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,12 +24,9 @@ import com.example.three.adapter.RlvFenListAdapter;
 import com.example.three.app.HttpCallBack;
 import com.example.three.bean.CategoryList;
 import com.example.three.bean.CategoryTab;
-import com.example.three.bean.Idbean;
 import com.example.three.reqstbean.CategoryPrams;
 import com.example.three.ui.DetailedActivity;
 import com.google.gson.JsonElement;
-
-import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -55,9 +55,9 @@ public class DetailedActivity extends AppCompatActivity implements OnRefreshLoad
             @Override
             public void onItemListener(int positon) {
                 DataDetailedean dataDetailedean = datalist.get(positon);
-                int categoryId = dataDetailedean.getCategoryId();
+//                Bundle bundle = new Bundle();
                 Intent intent = new Intent(DetailedActivity.this, DetailsActivity.class);
-                intent.putExtra("posiId",categoryId);
+                intent.putExtra("data", dataDetailedean);
                 startActivity(intent);
             }
         });
@@ -87,7 +87,7 @@ public class DetailedActivity extends AppCompatActivity implements OnRefreshLoad
         int id = getIntent().getExtras().getInt("id");
         new HttpClient.Builder()
                 .setApiUrl("kotlin/goods/getGoodsList")
-                .setJsonbody("{\"categoryId\":"+id+",\"pageNo\":"+page+"}", true)
+                .setJsonbody("{\"categoryId\":" + id + ",\"pageNo\":" + page + "}", true)
                 .post()
                 .build()
                 .requset(new HttpCallBack<List<DataDetailedean>>() {
@@ -136,13 +136,13 @@ public class DetailedActivity extends AppCompatActivity implements OnRefreshLoad
 
     @Override
     public void onLoadmore(RefreshLayout refreshlayout) {
-            page++;
-            initData();
+        page++;
+        initData();
     }
 
     @Override
     public void onRefresh(RefreshLayout refreshlayout) {
-        if(datalist!=null&&datalist.size()>0){
+        if (datalist != null && datalist.size() > 0) {
             datalist.clear();
             initData();
         }

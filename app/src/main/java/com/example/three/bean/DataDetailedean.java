@@ -1,18 +1,20 @@
 package com.example.three.bean;
 
+import java.io.Serializable;
+
 /**
  * @date：2020/8/12
  * @describe：
  * @author：FanYaJun
  */
-public class DataDetailedean {
+public class DataDetailedean implements Serializable {
     /**
      * id : 9
      * categoryId : 24
      * goodsDesc : Apple iPhone 6s Plus (A1699) 32G 金色 移动联通电信4G手机
      * goodsDefaultIcon : https://img14.360buyimg.com/n1/s450x450_jfs/t3268/124/2646283367/114153/f5704b88/57e4a358N9ccc6645.jpg
-     * goodsDefaultPrice : 100
-     * goodsDetailOne : https://img30.360buyimg.com/jgsq-productsoa/jfs/t6337/310/2148869366/61744/dca36a9c/595dda76N64984138.jpg
+     *  : 100
+     * goodsDegoodsDefaultPricetailOne : https://img30.360buyimg.com/jgsq-productsoa/jfs/t6337/310/2148869366/61744/dca36a9c/595dda76N64984138.jpg
      * goodsDetailTwo : https://img30.360buyimg.com/jgsq-productsoa/jfs/t6175/244/140312464/88326/30e3b943/593a4888N3187bea7.jpg
      * goodsSalesCount : 9890
      * goodsStockCount : 1200

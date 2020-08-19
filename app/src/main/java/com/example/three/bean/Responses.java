@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @describe：
  * @author：FanYaJun
  */
-public class Responses implements Serializable {
+public class Responses  {
     int Status;
     String Message;
     JsonElement data;
